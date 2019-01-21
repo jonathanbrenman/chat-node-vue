@@ -1,0 +1,24 @@
+
+*:focus {
+  outline: none;
+}
+
+.chat-input {
+  background: #313740;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 15px;
+  color: #fff;
+  font-family: helvetica;
+  font-size: 20px;
+}
+
+.chatInput {
+  background: #313740;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  color: #fff;
+  font-family: helvetica;
+  font-size: 20px;
+}

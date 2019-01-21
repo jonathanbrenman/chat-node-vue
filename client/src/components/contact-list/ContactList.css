@@ -1,0 +1,30 @@
+
+.contact-container {
+  background: #313740;
+  border-radius: 3px;
+  height: 77.5vh;
+  padding: 30px;
+  color: #fff;
+  font-family: helvetica;
+  font-size: 20px;
+  overflow-y: auto;
+}
+
+.separator {
+  border-bottom: 1px solid #fff;
+}
+
+.contact {
+  cursor: pointer;
+  padding-top: 15px;
+}
+
+.contact:hover {
+  opacity: 0.8;
+}
+
+.avatar {
+  background: #fff;
+  height: 45px;
+  border-radius: 50px;
+}
