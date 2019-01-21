@@ -4,11 +4,17 @@
   <br>
   <div class="row">
     <div class="col-lg-2">
-      <ContactList />
+      <ContactList :username="username" />
     </div>
     <div class="col-lg-10">
-      <ChatScreen />
-      <ChatInput />
+      <ChatScreen :username="username" />
+      <ChatInput :username="username" />
     </div>
   </div>
+  <!-- Modal Component -->
+  <b-modal v-model="modalShow" id="promptUserName" ref="usernameModal" title="Choose a username" @ok="setUserName">
+    <p class="my-4">
+      <input class="username-input" v-model="choosenName" type="text" name="username" value="" placeholder="Insert your username..">
+    </p>
+  </b-modal>
 </div>

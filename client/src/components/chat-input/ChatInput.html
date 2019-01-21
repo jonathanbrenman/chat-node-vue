@@ -1,4 +1,5 @@
 
 <div class="chat-input">
-    <input class="chatInput" type="text" name="chatInput" value="" placeholder="Write your message here!">
+    <input v-if="username" class="chatInput" type="text" name="chatInput" value="" placeholder="Write your message here!">
+    <input v-if="!username" class="chatInput" type="text" name="chatInput" value="" placeholder="" readonly>
 </div>
