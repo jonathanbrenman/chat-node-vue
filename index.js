@@ -7,6 +7,9 @@ const dotenv  = require('dotenv').config(),
 
   app.use('/static', express.static(__dirname + '/assets'));
   app.use(express.static('client/dist'));
+  app.get('*',(req, res) => {
+    res.sendFile('client/dist/index.html');
+  });
 
   server.listen(port, () => {
     console.log(`Server started on port ${port}`);
