@@ -5,10 +5,12 @@ const dotenv  = require('dotenv').config(),
       app     = express(),
       server  = require('http').createServer(app);
 
-  server.listen(port, () => {
-    console.log(`Server started on >>> http://localhost:${port}`);
+  app.use('/static', express.static(__dirname + '/assets'));
+  app.use(express.static(__dirname + '/client/dist'));
+
+  server.listen(port, '0.0.0.0', () => {
+    console.log(`Server started on >>> http://0.0.0.0:${port}`);
   });
 
 const io      = require('socket.io')(server),
-      router  = require('./routes/router.js')(app),
       socket  = require('./socket/api.js')(io);
