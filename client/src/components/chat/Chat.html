@@ -1,14 +1,14 @@
 <div class="col-lg-12">
-  <h1>Welcome to Chat</h1>
+  <h1>Welcome to Chat {{username}}</h1>
   <hr>
   <br>
   <div class="row">
     <div class="col-lg-2">
-      <ContactList :username="username" />
+      <ContactList :username="username" :users="users" />
     </div>
     <div class="col-lg-10">
-      <ChatScreen :username="username" />
-      <ChatInput :username="username" />
+      <Screen :username="username" :messages="messages"/>
+      <Input :username="username" />
     </div>
   </div>
   <!-- Modal Component -->

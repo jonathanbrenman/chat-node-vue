@@ -1,31 +1,53 @@
 
-import ChatScreen from '../chat-screen/ChatScreen.vue';
-import ChatInput from '../chat-input/ChatInput.vue';
-import ContactList from '../contact-list/ContactList.vue';
+import Screen from './screen/Screen.vue';
+import Input from './input/Input.vue';
+import ContactList from './contact-list/ContactList.vue';
 
 export default {
-  name: 'chat',
+  name: 'Chat',
   data: function() {
     return {
       choosenName: null,
       username: null,
-      modalShow: true
+      modalShow: true,
+      users: [],
+      messages: []
     }
   },
   sockets: {
-      customEmit: function (data) {
-          console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+      askUsername: function () {
+        if(this.choosenName) {
+          this.setUserName();
+        } else {
+          this.modalShow   = true;
+        }
+      },
+      newUserConnected: function (data) {
+        this.users.push({
+          username: data.username
+        });
+        this.messages.push({
+          from: data.from,
+          message: data.message
+        });
+      },
+      newMessage: function (data) {
+        this.messages.push({
+          from: data.from,
+          message: data.message
+        });
       }
   },
   created: function () {},
   methods: {
     setUserName: function () {
       this.username = this.choosenName;
+      this.$socket.emit('newUser', this.username);
     }
   },
   components: {
-    ChatScreen,
-    ChatInput,
+    Screen,
+    Input,
     ContactList
   }
 }

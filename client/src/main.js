@@ -14,10 +14,5 @@ Vue.use(new VueSocketIO({
 }))
 
 new Vue({
-  sockets: {
-      connect: function () {
-          console.log('socket connected')
-      }
-  },
   render: h => h(App),
 }).$mount('#app')

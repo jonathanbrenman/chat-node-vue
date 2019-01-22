@@ -1,6 +1,6 @@
 
 export default {
   name: 'ContactList',
-  props: ['username'],
+  props: ['username', 'users'],
   components: {}
 }

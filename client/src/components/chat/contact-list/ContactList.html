@@ -1,0 +1,11 @@
+
+<div class="contact-container text-left">
+  <label>Online Users</label>
+  <div class="separator"></div>
+  <div class="contact-list" v-if="username">
+    <div class="contact" v-for="item in $parent.users">
+      <img class="avatar" src="../../../assets/avatar.png" alt="avatar"> &nbsp;
+      <span>{{item.username}}</span>
+    </div>
+  </div>
+</div>

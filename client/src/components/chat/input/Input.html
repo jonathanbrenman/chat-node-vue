@@ -1,0 +1,5 @@
+
+<div class="chat-input">
+    <input v-if="username" class="chatInput" type="text" name="chatInput" v-model="message" @keyup.enter="writeMessage" value="" placeholder="Write your message here!" autocomplete="off">
+    <input v-if="!username" class="chatInput" type="text" name="chatInput" value="" placeholder="" readonly>
+</div>
