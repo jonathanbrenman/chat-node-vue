@@ -1,7 +1,7 @@
 
 const dotenv  = require('dotenv').config(),
       express = require('express'),
-      port    = process.env.APPLICATION_PORT || 3000,
+      port    = process.env.APPLICATION_PORT || process.env.PORT,
       app     = express(),
       server  = require('http').createServer(app);
 
