@@ -10,11 +10,13 @@ export default {
   },
   methods: {
     writeMessage: function () {
-      this.$socket.emit('sendMessage', {
-        username: this.username,
-        message: this.message
-      });
-      this.message = null;
+      if(this.message) {
+        this.$socket.emit('sendMessage', {
+          username: this.username,
+          message: this.message
+        });
+        this.message = null;
+      }
     }
   },
   components: {}

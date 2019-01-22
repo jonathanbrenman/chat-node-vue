@@ -1,5 +1,7 @@
 
 module.exports = (io) => {
+  var users = [];
+
   io.on('connection', (socket) => {
     console.log('New connection');
     if(!socket.username) {
@@ -7,9 +9,13 @@ module.exports = (io) => {
     }
     socket.on('newUser', (name) => {
       socket.username = name;
-      socket.broadcast.emit('newUserConnected',{
+      users.push({
+        username: name
+      });
+      io.sockets.emit('newUserConnected',{
         from: 'Chatbot',
         username: name,
+        users: users,
         message: `${socket.username} was added to chatroom`
       });
     });

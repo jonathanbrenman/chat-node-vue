@@ -23,9 +23,7 @@ export default {
         }
       },
       newUserConnected: function (data) {
-        this.users.push({
-          username: data.username
-        });
+        this.users = data.users;
         this.messages.push({
           from: data.from,
           message: data.message
@@ -36,6 +34,8 @@ export default {
           from: data.from,
           message: data.message
         });
+        var container = this.$el.querySelector(".chat-screen");
+        container.scrollTop = container.scrollHeight;
       }
   },
   created: function () {},
