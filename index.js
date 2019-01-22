@@ -7,7 +7,7 @@ const dotenv  = require('dotenv').config(),
       server  = require('http').createServer(app);
 
   app.use('/static', express.static(__dirname + '/assets'));
-  app.use(express.static(__dirname + '/client/dist'));
+  app.use(express.static('client/dist'));
   app.get('*', (request, response) => {
   	response.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
   });
