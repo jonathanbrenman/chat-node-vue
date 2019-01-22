@@ -6,6 +6,9 @@ Node version using 11.3.0.
 Server run on port 7777 by default.
 Environment variables customizable in .env file.
 
+Demo:
+  https://chatianding.herokuapp.com
+
 Setup:
   1) git clone repo
   2) npm install && cd client && npm install && npm run build
