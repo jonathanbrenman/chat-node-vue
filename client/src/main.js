@@ -10,7 +10,8 @@ Vue.config.productionTip = false
 
 Vue.use(new VueSocketIO({
     debug: false,
-    connection: 'https://chatianding.herokuapp.com',
+    connection: 'https://chatianding.herokuapp.com'
+    //connection: 'http://localhost:7777'
 }))
 
 new Vue({

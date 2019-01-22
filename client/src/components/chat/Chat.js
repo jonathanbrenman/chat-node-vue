@@ -26,13 +26,15 @@ export default {
         this.users = data.users;
         this.messages.push({
           from: data.from,
-          message: data.message
+          message: data.message,
+          createdAt: data.createdAt
         });
       },
       newMessage: function (data) {
         this.messages.push({
           from: data.from,
-          message: data.message
+          message: data.message,
+          createdAt: data.createdAt
         });
         var container = this.$el.querySelector(".chat-screen");
         container.scrollTop = container.scrollHeight;

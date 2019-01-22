@@ -9,7 +9,8 @@ module.exports = (io) => {
       socket.emit('askUsername', null);
     }
     socket.on('newUser', (name) => {
-      var current_time = moment().format('DD-MMM-YYYY HH:mm:ss');
+      var current_time = moment().format('DD-MM-YYYY HH:mm:ss');
+      console.log(current_time);
       socket.username = name;
       users.push({
         username: name
@@ -23,7 +24,7 @@ module.exports = (io) => {
       });
     });
     socket.on('sendMessage', (data) => {
-      var current_time = moment().format('DD-MMM-YYYY HH:mm:ss');
+      var current_time = moment().format('DD-MM-YYYY HH:mm:ss');
       io.sockets.emit('newMessage',{
         from: data.username,
         message: data.message,
