@@ -9,7 +9,7 @@ const dotenv  = require('dotenv').config(),
   app.use(express.static(__dirname + '/client/dist'));
 
   server.listen(port, () => {
-    console.log(`Server started on >>> http://0.0.0.0:${port}`);
+    console.log('Server started.');
   });
 
 const io      = require('socket.io')(server),
