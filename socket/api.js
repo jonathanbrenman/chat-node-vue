@@ -1,6 +1,7 @@
 
 module.exports = (io) => {
-  var users = [];
+  const moment = require('moment');
+  var users    = [];
 
   io.on('connection', (socket) => {
     console.log('New connection');
@@ -8,6 +9,7 @@ module.exports = (io) => {
       socket.emit('askUsername', null);
     }
     socket.on('newUser', (name) => {
+      var current_time = moment().format('DD-MMM-YYYY HH:mm:ss');
       socket.username = name;
       users.push({
         username: name
@@ -15,14 +17,17 @@ module.exports = (io) => {
       io.sockets.emit('newUserConnected',{
         from: 'Chatbot',
         username: name,
+        createdAt: current_time,
         users: users,
         message: `${socket.username} was added to chatroom`
       });
     });
     socket.on('sendMessage', (data) => {
+      var current_time = moment().format('DD-MMM-YYYY HH:mm:ss');
       io.sockets.emit('newMessage',{
         from: data.username,
-        message: data.message
+        message: data.message,
+        createdAt: current_time
       });
     });
   });
