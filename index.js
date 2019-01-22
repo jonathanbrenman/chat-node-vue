@@ -1,7 +1,7 @@
 
 const dotenv  = require('dotenv').config(),
       express = require('express'),
-      port    = process.env.APPLICATION_PORT,
+      port    = process.env.APPLICATION_PORT || 3000,
       app     = express(),
       server  = require('http').createServer(app);
 
@@ -9,7 +9,7 @@ const dotenv  = require('dotenv').config(),
   app.use(express.static(__dirname + '/client/dist'));
 
   server.listen(port, () => {
-    console.log('Server started.');
+    console.log(`Server started on port ${port}`);
   });
 
 const io      = require('socket.io')(server),
